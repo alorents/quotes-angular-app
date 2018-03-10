@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Quote } from '../quote';
+import { QUOTES } from '../mock-quotes';
 
 @Component({
   selector: 'app-quotes',
@@ -6,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./quotes.component.css']
 })
 export class QuotesComponent implements OnInit {
-  quote = 'I drink and I know things';
+  quotes = QUOTES;
+  index = Math.floor(Math.random() * this.quotes.length);
+  quote: Quote = this.quotes[this.index];
 
   constructor() { }
 
