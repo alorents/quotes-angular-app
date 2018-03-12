@@ -14,10 +14,14 @@ export class QuotesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.quote = this.randomQuoteIndex();
+    this.quote = this.getRandomQuote();
   }
 
-  randomQuoteIndex() {
+  randomizeDisplayedQuote() {
+    this.quote = this.getRandomQuote();
+  }
+
+  getRandomQuote() {
     return this.quotes[Math.floor(Math.random() * this.quotes.length)];
   }
 }
