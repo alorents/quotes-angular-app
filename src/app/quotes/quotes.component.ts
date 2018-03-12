@@ -8,13 +8,21 @@ import { QUOTES } from '../mock-quotes';
   styleUrls: ['./quotes.component.css']
 })
 export class QuotesComponent implements OnInit {
-  quotes = QUOTES;
-  index = Math.floor(Math.random() * this.quotes.length);
-  quote: Quote = this.quotes[this.index];
+  quotesFromMasterList = QUOTES;
+  quotesFromUser: Quote[] = [{quote: '', author: ''}];
+
+  quoteFromBrowser = new Quote();
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  addQuoteToList() {
+    console.log('Quote ' + this.quoteFromBrowser.quote + ' ' + this.quoteFromBrowser.author);
+    const quoteToAdd = new Quote();
+    quoteToAdd.quote = this.quoteFromBrowser.quote;
+    quoteToAdd.author = this.quoteFromBrowser.author;
+    this.quotesFromUser.push(quoteToAdd);
+  }
 }
