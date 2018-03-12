@@ -9,12 +9,19 @@ import { QUOTES } from '../mock-quotes';
 })
 export class QuotesComponent implements OnInit {
   quotes = QUOTES;
-  index = Math.floor(Math.random() * this.quotes.length);
-  quote: Quote = this.quotes[this.index];
+  quote: Quote;
 
   constructor() { }
 
   ngOnInit() {
+    this.quote = this.getRandomQuote();
   }
 
+  randomizeDisplayedQuote() {
+    this.quote = this.getRandomQuote();
+  }
+
+  getRandomQuote() {
+    return this.quotes[Math.floor(Math.random() * this.quotes.length)];
+  }
 }
