@@ -9,8 +9,7 @@ import { QUOTES } from '../mock-quotes';
 })
 export class QuotesComponent implements OnInit {
   quotesFromMasterList = QUOTES;
-  quotesFromUser: Quote[] = [{quote: '', author: ''}];
-
+  quotesFromUser: Quote[] = JSON.parse(localStorage.getItem('LSQuotes')) || [];
   quoteFromBrowser = new Quote();
 
   constructor() { }
@@ -19,10 +18,10 @@ export class QuotesComponent implements OnInit {
   }
 
   addQuoteToList() {
-    console.log('Quote ' + this.quoteFromBrowser.quote + ' ' + this.quoteFromBrowser.author);
     const quoteToAdd = new Quote();
     quoteToAdd.quote = this.quoteFromBrowser.quote;
     quoteToAdd.author = this.quoteFromBrowser.author;
     this.quotesFromUser.push(quoteToAdd);
+    localStorage.setItem('LSQuotes', JSON.stringify(this.quotesFromUser));
   }
 }
