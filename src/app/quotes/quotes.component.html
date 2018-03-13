@@ -1,6 +1,6 @@
-<div class="container">
+<div class="quote-form">
   <h2>Quote Form</h2>
-  <form #quotesComponent="ngForm">
+  <form  #quotesComponent="ngForm">
     <div class="form-group">
       <label for="quote">Quote</label>
       <input type="text" class="form-control" id="quote" required [(ngModel)]="quoteFromBrowser.quote" name="quote">
@@ -8,8 +8,7 @@
 
     <div class="form-group">
       <label for="author">Author</label>
-      <input type="text" class="form-control" id="author"
-             [(ngModel)]="quoteFromBrowser.author" name="author">
+      <input type="text" class="form-control" id="author" required [(ngModel)]="quoteFromBrowser.author" name="author">
     </div>
 
     <button type="submit" (click)="addQuoteToList()" class="btn btn-success">Submit</button>
